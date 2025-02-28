@@ -1,4 +1,4 @@
-import { meta, shopify, starbucks, tesla } from "../assets/images";
+import { micro1, oracle, qualcomm } from "../assets/images";
 import {
     car,
     contact,
@@ -111,55 +111,32 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: starbucks,
-        iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: tesla,
+        title: "Software Engineer",
+        company_name: "Oracle",
+        icon: oracle,
         iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
+        date: "July 2021 - Aug 2024",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Promoted within two years at Oracle, contributing to Procurement Cloud and CRM CX Sales Cloud teams. Designed and optimized scalable RESTful APIs, frontend solutions, and system architectures to enhance performance, efficiency, and distributed storage.",
+            "Engineered new REST services using Java EE & SpringBoot to fetch & modify existing healthcare data of Cerner from the Oracle CRM Opportunities UI.",
+            "Collaborated with a cross-functional team of 5 engineers to design re-usable UX components called fragments leading to a 20% decrease in the size of existing code block on Oracle Cloud by leveraging ReactJS.",
+            "Optimized a distributed SpringBoot service for forecasting win probability by refining Elasticsearch queries and load balancing strategies, improving response time by 15% and enhancing system scalability.",
+            "Designed a Java & PL/SQL RESTful API microservice for bulk updates of requester attributes across multiple distributions, accelerating update speed by 10x and optimizing workflows.",
+            "Built a high-performance PL/SQL-based RESTful API for purchase order summaries, integrating CTEs and intelligent common value detection to achieve a 7x reduction in response time while ensuring scalability.",
+            "Developed a comprehensive frontend solution using ReactJS, Helidon Microprofile, and Oracle Cloud, introducing asynchronous action chains that reduced page load times by 80%.",
+
         ],
     },
     {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: shopify,
-        iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        title: "Software Engineering Intern",
+        company_name: "Qualcomm",
+        icon: qualcomm,
+        iconBg: "#accbe1",
+        date: "May 2020 - Aug 2020",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: meta,
-        iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Worked as a Software Engineering Intern in the WLAN Firmware team, contributing to state-of-the-art technologies like Wi-Fi 6. Worked on low-level firmware and optimizations, earning a pre-placement offer based on performance.",
+            "Created low-level C programs to enable parallel data transmission over 2.4 GHz and 5 GHz bands, validating performance through emulation to improve WLAN efficiency.",
+            "Architected a Python-based command-line utility to expedite non-critical code merges, bypassing CI/CD pipelines and reducing processing time by over 30%.",
         ],
     },
 ];
@@ -173,12 +150,12 @@ export const socialLinks = [
     {
         name: 'GitHub',
         iconUrl: github,
-        link: 'https://github.com/YourGitHubUsername',
+        link: 'https://github.com/AranyaAryaman',
     },
     {
         name: 'LinkedIn',
         iconUrl: linkedin,
-        link: 'https://www.linkedin.com/in/YourLinkedInUsername',
+        link: 'https://www.linkedin.com/in/aranya289',
     }
 ];
 
