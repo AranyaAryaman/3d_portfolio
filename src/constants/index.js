@@ -23,7 +23,13 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    python,
+    elasticsearch,
+    docker,
+    linux,
+    firebase,
+    golang
 } from "../assets/icons";
 
 export const skills = [
@@ -63,14 +69,34 @@ export const skills = [
         type: "Database",
     },
     {
-        imageUrl: motion,
-        name: "Motion",
-        type: "Animation",
+        imageUrl: python,
+        name: "Python",
+        type: "Backend",
     },
     {
-        imageUrl: mui,
-        name: "Material-UI",
-        type: "Frontend",
+        imageUrl: docker,
+        name: "Docker",
+        type: "Backend",
+    },
+    {
+        imageUrl: linux,
+        name: "Linux",
+        type: "OS",
+    },
+    {
+        imageUrl: golang,
+        name: "GoLang",
+        type: "Backend",
+    },
+    {
+        imageUrl: firebase,
+        name: "Firebase",
+        type: "Database",
+    },
+    {
+        imageUrl: elasticsearch,
+        name: "Elasticsearch",
+        type: "Database",
     },
     {
         imageUrl: nextjs,
@@ -161,45 +187,45 @@ export const socialLinks = [
 
 export const projects = [
     {
-        iconUrl: pricewise,
+        iconUrl: estate,
         theme: 'btn-back-red',
-        name: 'Amazon Price Tracker',
-        description: 'Developed a web application that tracks and notifies users of price changes for products on Amazon, helping users find the best deals.',
-        link: 'https://github.com/adrianhajdin/pricewise',
+        name: 'AWS Dining Recommender',
+        description: 'Engineered an AI-driven conversational bot with AWS Lex & AWS Lambda, capturing user preferences, processing data via SQS, and delivering restaurant recommendations through SES, AWS OpenSearch, and CloudWatch triggers.',
+        link: 'https://github.com/AranyaAryaman/AWS-Dining-Recommender',
     },
     {
         iconUrl: threads,
         theme: 'btn-back-green',
-        name: 'Full Stack Threads Clone',
-        description: 'Created a full-stack replica of the popular discussion platform "Threads," enabling users to post and engage in threaded conversations.',
-        link: 'https://github.com/adrianhajdin/threads',
+        name: 'Real Time Messaging System',
+        description: 'Built a full-stack real-time chat application utilizing the MERN stack, Socket.io, and JWT authentication, integrating live messaging, online user tracking, global state management with Zustand, and a robust error-handling system.',
+        link: 'https://webchat-j21z.onrender.com/login',
+    },
+    {
+        iconUrl: summiz,
+        theme: 'btn-back-blue',
+        name: 'Shell',
+        description: 'Designed a custom flow graph interpreter to manage chained processes using pipes, concatenations, and file redirections, replicating shell functionality. Engineered process execution with dynamic command parsing, handling of standard/error outputs, and interpretation of structured flow files.',
+        link: 'https://github.com/AranyaAryaman/nodeLanguage',
     },
     {
         iconUrl: car,
-        theme: 'btn-back-blue',
-        name: 'Car Finding App',
-        description: 'Designed and built a mobile app for finding and comparing cars on the market, streamlining the car-buying process.',
-        link: 'https://github.com/adrianhajdin/project_next13_car_showcase',
-    },
-    {
-        iconUrl: snapgram,
         theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
-        description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        name: 'Room Delivery Service',
+        description: 'Developed an online food and grocery ordering system serving 500+ daily users in IIT Guwahati, featuring secure login, real-time stock management with automated tracking, and instant delivery estimation, reducing stock shortages by 20% and increasing sales by 18% through enhanced efficiency.',
+        link: 'https://github.com/AranyaAryaman/RoomDeliveryService',
     },
     {
         iconUrl: estate,
         theme: 'btn-back-black',
-        name: 'Real-Estate Application',
-        description: 'Developed a web application for real estate listings, facilitating property searches and connecting buyers with sellers.',
-        link: 'https://github.com/adrianhajdin/projects_realestate',
+        name: 'strace',
+        description: 'Implemented strace in xv6 to trace over 22 system calls with features like command-specific tracing, persistent tracking, and circular buffer logging for precise debugging. Diagnosed memory leaks by analyzing sbrk system calls, identifying allocation failures, and evaluating program break increments for dynamic memory management issues.',
+        link: 'https://github.com/AranyaAryaman/strace-xv6',
     },
     {
-        iconUrl: summiz,
+        iconUrl: snapgram,
         theme: 'btn-back-yellow',
-        name: 'AI Summarizer Application',
-        description: 'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
-        link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+        name: 'Blended Learning Platform',
+        description: 'Android blended learning platform, integrating multiple modules including assignments, in-class attendance, and student attention visualization screens enhanced with Emotion AI models to depict user states accurately. Orchestrated server-side storage and real-time (≤ 0.1s lag) synchronization between the teacher and student screens on theplatform. Formulated a visualization algorithm to map students sitting in a circular classroom onto the mobile screen',
+        link: 'https://github.com/AranyaAryaman/Vedinkaksa',
     }
 ];

@@ -26,6 +26,12 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import python from './python.svg'
+import golang from './golang.svg'
+import firebase from './firebase.svg'
+import docker from './docker.svg'
+import linux from './linux.svg'
+import elasticsearch from './elasticsearch.svg'
 
 export {
     css,
@@ -55,5 +61,11 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    python,
+    elasticsearch,
+    docker,
+    linux,
+    firebase,
+    golang
 }
