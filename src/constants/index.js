@@ -227,5 +227,12 @@ export const projects = [
         name: 'Blended Learning Platform',
         description: 'Android blended learning platform, integrating multiple modules including assignments, in-class attendance, and student attention visualization screens enhanced with Emotion AI models to depict user states accurately. Orchestrated server-side storage and real-time (≤ 0.1s lag) synchronization between the teacher and student screens on theplatform. Formulated a visualization algorithm to map students sitting in a circular classroom onto the mobile screen',
         link: 'https://github.com/AranyaAryaman/Vedinkaksa',
-    }
+    },
+    {
+        iconUrl: pricewise,
+        theme: 'btn-back-black',
+        name: 'Crypto Dashboard',
+        description: 'A simple NextJS based Crypto Dashboard that tracks the live market price, total volume & percentage change of price of over 20 coins with a search functionality. Used CoinGecko API for fetching live data & documented the project setup instructions using Docasaurus.',
+        link: 'https://github.com/AranyaAryaman/nextjs-crypto-api/',
+    },
 ];
