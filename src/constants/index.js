@@ -48,6 +48,27 @@ export const projects = [
     link: "",
   },
   {
+    name: "LLM Supervised Fine-Tuning",
+    description:
+      "Supervised fine-tuning (SFT) of a large language model on a curated instruction dataset — building the data pipeline, training loop, and evaluation harness to improve task-specific performance over the base model.",
+    tags: ["LLM", "Fine-Tuning", "PyTorch", "ML"],
+    link: "",
+  },
+  {
+    name: "Multimodal Fake News Detection",
+    description:
+      "A multimodal classifier that detects misinformation by jointly modeling article text and imagery — combining NLP embeddings with visual features to outperform unimodal text-only baselines.",
+    tags: ["Deep Learning", "NLP", "Multimodal", "ML"],
+    link: "",
+  },
+  {
+    name: "Causal Inference: Weather & Traffic",
+    description:
+      "An observational causal-inference study estimating the effect of weather conditions on traffic patterns — applying causal methods to separate genuine causal impact from confounded correlation.",
+    tags: ["Causal Inference", "Statistics", "Python"],
+    link: "",
+  },
+  {
     name: "Code Vulnerability Detector",
     description:
       "An AI security scanning tool using Bandit and LLaMA 3.2B on AWS Lambda to analyze GitHub repositories, generating CVE-tagged reports with LLM-powered remediation across 30+ vulnerability classes.",
@@ -106,6 +127,11 @@ export const achievements = [
   },
   {
     year: "2025",
+    title: "Distinguished Academic Achievement, NYU",
+    note: "Recognized for academic excellence (4.0 GPA).",
+  },
+  {
+    year: "2025",
     title: "Graduate Teaching Assistant — Operating Systems & Algorithms",
     note: "New York University.",
   },
@@ -113,6 +139,11 @@ export const achievements = [
     year: "2024",
     title: "Top 2% Founder Profile, Y Combinator",
     note: "Co-founder of an AI startup valued at $3M post-money.",
+  },
+  {
+    year: "2024",
+    title: "Perfect GRE Quantitative Score — 170 / 170",
+    note: "",
   },
   {
     year: "2023",
@@ -133,6 +164,11 @@ export const achievements = [
     year: "2017",
     title: "All India Rank 570 — IIT JEE Advanced",
     note: "Top 0.1% nationally · National Top 1%, Physics Olympiad (India).",
+  },
+  {
+    year: "2016",
+    title: "KVPY Scholarship — All India Rank 176",
+    note: "National research-aptitude fellowship, Dept. of Science & Technology, India.",
   },
 ];
 
