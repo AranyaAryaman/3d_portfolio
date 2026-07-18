@@ -61,8 +61,41 @@ const SUGGESTIONS = [
   "How can I contact him?",
 ];
 
+// Conversational small talk handled before keyword lookup.
+const SMALLTALK = [
+  {
+    test: /\b(hi|hii+|hey+|hello|yo|hiya|namaste|sup|greetings|howdy)\b/,
+    a: "Hey there! I'm Aranya's assistant. Ask me about his work at Quanta Ventures, his startup Hush, his projects, skills, education, or how to reach him.",
+  },
+  {
+    test: /\b(thanks|thank you|thankyou|thx|ty|appreciate)\b/,
+    a: "Anytime! Anything else you'd like to know about Aranya?",
+  },
+  {
+    test: /\b(bye|goodbye|see you|see ya|cya|later)\b/,
+    a: "Thanks for stopping by! You can reach Aranya anytime at aryamanaranya@gmail.com.",
+  },
+  {
+    test: /how are you|how's it going|how are u|how r u/,
+    a: "Doing great, thanks for asking! What would you like to know about Aranya?",
+  },
+  {
+    test: /\b(who are you|what are you|your name)\b/,
+    a: "I'm a lightweight assistant that answers questions about Aranya, his work, projects, skills, achievements, and more. Ask away!",
+  },
+  {
+    test: /\b(help|options|what can|what do you)\b/,
+    a: "I can tell you about Aranya's work (Quanta Ventures, Hush, Oracle), his projects, skills, education, achievements, mentorship, hobbies, or how to get in touch. Try a suggestion below the chat, or just ask.",
+  },
+];
+
 const answerFor = (text) => {
-  const q = text.toLowerCase();
+  const q = text.toLowerCase().trim();
+
+  for (const s of SMALLTALK) {
+    if (s.test.test(q)) return s.a;
+  }
+
   let best = null;
   let bestScore = 0;
   for (const item of KB) {
@@ -77,7 +110,7 @@ const answerFor = (text) => {
     }
   }
   if (best) return best.a;
-  return "Good question, I can tell you about Aranya's work (Quanta Ventures, Hush, Oracle), projects, skills, education, achievements, mentorship, hobbies, or how to get in touch. Try one of the suggestions below.";
+  return "I'm not sure about that one, but I can tell you about Aranya's work, projects, skills, education, achievements, mentorship, hobbies, or contact details. Try a suggestion below, or rephrase your question.";
 };
 
 const ChatAssistant = () => {
@@ -161,21 +194,21 @@ const ChatAssistant = () => {
               </div>
             )}
 
-            {messages.length <= 1 && (
-              <div className="flex flex-wrap gap-2 pt-2">
-                {SUGGESTIONS.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => send(s)}
-                    className="rounded-full border border-hairline px-3 py-1.5 text-xs text-ivory-dim transition-colors hover:border-gold hover:text-gold"
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            )}
             <div ref={endRef} />
+          </div>
+
+          {/* persistent quick questions */}
+          <div className="flex gap-2 overflow-x-auto border-t border-hairline px-4 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {SUGGESTIONS.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => send(s)}
+                className="whitespace-nowrap rounded-full border border-hairline px-3 py-1.5 text-xs text-ivory-dim transition-colors hover:border-gold hover:text-gold"
+              >
+                {s}
+              </button>
+            ))}
           </div>
 
           <form
