@@ -110,11 +110,6 @@ export const achievements = [
     note: "New York University.",
   },
   {
-    year: "2025",
-    title: "Awarded $5K AWS Activate startup credits",
-    note: "For Hush, the AI startup I co-founded.",
-  },
-  {
     year: "2024",
     title: "Top 2% Founder Profile, Y Combinator",
     note: "Co-founder of an AI startup valued at $3M post-money.",
@@ -123,11 +118,6 @@ export const achievements = [
     year: "2023",
     title: "Semi-finalist — Oracle EMEA Tournament, Manchester",
     note: "",
-  },
-  {
-    year: "2021",
-    title: "Pre-Placement Offer, Qualcomm",
-    note: "For internship performance.",
   },
   {
     year: "2020",
