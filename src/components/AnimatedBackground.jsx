@@ -46,7 +46,7 @@ const VARIANTS = {
     phrases: [
       "teach · learn · grow",
       "mentor → student",
-      "office hours 3–5pm",
+      "office hours 3-5pm",
       "knowledge compounds",
     ],
   },
@@ -60,7 +60,7 @@ const VARIANTS = {
     ],
   },
   contact: {
-    pool: ["@", "✉", "·", "—", "»", "☎", "→"],
+    pool: ["@", "✉", "·", "-", "»", "☎", "→"],
     phrases: ["let's connect", "say hello", "reach out", "@ aranya"],
   },
 };

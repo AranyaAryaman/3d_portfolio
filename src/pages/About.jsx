@@ -22,7 +22,7 @@ const About = () => {
         <p>
           I've architected a systematic signal-research engine at a quantitative
           fund, co-founded an AI startup, and shipped low-latency distributed
-          systems at Oracle — always drawn to turning research into durable,
+          systems at Oracle, always drawn to turning research into durable,
           production-grade software.
         </p>
       </div>

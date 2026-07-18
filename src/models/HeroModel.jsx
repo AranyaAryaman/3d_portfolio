@@ -20,7 +20,7 @@ const Spin = ({ children, speed = 0.22 }) => {
 };
 
 const Island = () => {
-  // island.glb is Draco-compressed — decode with the locally hosted decoder.
+  // island.glb is Draco-compressed, decode with the locally hosted decoder.
   const { scene } = useGLTF(islandScene, "/draco/");
   return (
     <PresentationControls

@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
 // Lightweight, offline "agentic" assistant. It answers questions about Aranya
-// from a curated knowledge base — no API key required. Swap `answerFor` for a
+// from a curated knowledge base, no API key required. Swap `answerFor` for a
 // real LLM call (with a backend proxy) to make it fully generative.
 const KB = [
   {
     keys: ["who is", "what does aranya do", "what do you do", "yourself", "summary", "overview", "introduce"],
-    a: "Aranya Aryaman is an AI Software Engineer, Quantitative Researcher, and startup co-founder based in New York. He builds systematic research engines, ML pipelines, and production AI — currently at Quanta Ventures, a quantitative fund.",
+    a: "Aranya Aryaman is an AI Software Engineer, Quantitative Researcher, and startup co-founder based in New York. He builds systematic research engines, ML pipelines, and production AI, currently at Quanta Ventures, a quantitative fund.",
   },
   {
     keys: ["quanta", "ventures", "current role", "research engine", "signal"],
@@ -14,7 +14,7 @@ const KB = [
   },
   {
     keys: ["hush", "startup", "founder", "co-founder", "company", "founded"],
-    a: "Aranya co-founded Hush, an AI startup, and drove the MVP from concept to production (Python, React, AWS) — scaling to a $3M post-money valuation with a top-2% Y Combinator founder profile while leading a team of 4 engineers.",
+    a: "Aranya co-founded Hush, an AI startup, and drove the MVP from concept to production (Python, React, AWS), scaling to a $3M post-money valuation with a top-2% Y Combinator founder profile while leading a team of 4 engineers.",
   },
   {
     keys: ["oracle", "previous", "before", "earlier"],
@@ -22,7 +22,7 @@ const KB = [
   },
   {
     keys: ["experience", "career", "job", "history", "worked"],
-    a: "Aranya's path: Quantitative Researcher at Quanta Ventures (2026) → Co-Founder & Founding Engineer at Hush (2025) → Software Engineer at Oracle (2021–2024). See the Work section for details.",
+    a: "Aranya's path: Quantitative Researcher at Quanta Ventures (2026) → Co-Founder & Founding Engineer at Hush (2025) → Software Engineer at Oracle (2021-2024). See the Work section for details.",
   },
   {
     keys: ["project", "built", "portfolio", "made"],
@@ -46,7 +46,7 @@ const KB = [
   },
   {
     keys: ["hobby", "hobbies", "music", "sing", "swim", "football", "fun", "free time"],
-    a: "Outside work, Aranya sings Hindi music (classical and film), swims to reset, and plays football competitively — including the Oracle EMEA tournament in Manchester. The Hobbies page has more.",
+    a: "Outside work, Aranya sings Hindi music (classical and film), swims to reset, and plays football competitively, including the Oracle EMEA tournament in Manchester. The Hobbies page has more.",
   },
   {
     keys: ["contact", "email", "reach", "hire", "connect", "linkedin", "github"],
@@ -77,7 +77,7 @@ const answerFor = (text) => {
     }
   }
   if (best) return best.a;
-  return "Good question — I can tell you about Aranya's work (Quanta Ventures, Hush, Oracle), projects, skills, education, achievements, mentorship, hobbies, or how to get in touch. Try one of the suggestions below.";
+  return "Good question, I can tell you about Aranya's work (Quanta Ventures, Hush, Oracle), projects, skills, education, achievements, mentorship, hobbies, or how to get in touch. Try one of the suggestions below.";
 };
 
 const ChatAssistant = () => {

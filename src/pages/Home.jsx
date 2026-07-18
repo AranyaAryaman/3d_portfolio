@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import AnimatedBackground from "../components/AnimatedBackground";
 import SocialIcon from "../components/SocialIcon";
 import HeroModel from "../models/HeroModel";
 import { useTypewriter } from "../hooks/useTypewriter";
@@ -17,6 +18,8 @@ const Home = () => {
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden">
+      <AnimatedBackground variant="quant" />
+
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-28 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
         {/* Left: intro */}
         <div>

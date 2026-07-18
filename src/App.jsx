@@ -3,7 +3,6 @@ import {
   Route,
   BrowserRouter as Router,
   Routes,
-  useLocation,
 } from "react-router-dom";
 import {
   Home,
@@ -17,29 +16,11 @@ import {
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
-import AnimatedBackground from "./components/AnimatedBackground";
 import ChatAssistant from "./components/ChatAssistant";
-
-// Each section gets a background themed to what it is.
-const VARIANT_BY_PATH = {
-  "/": "quant",
-  "/about": "code",
-  "/projects": "code",
-  "/achievements": "accolades",
-  "/mentorship": "academic",
-  "/hobbies": "hobbies",
-  "/contact": "contact",
-};
-
-const RoutedBackground = () => {
-  const { pathname } = useLocation();
-  return <AnimatedBackground variant={VARIANT_BY_PATH[pathname] || "quant"} />;
-};
 
 const App = () => {
   return (
     <Router>
-      <RoutedBackground />
       <main className="relative z-0 min-h-screen text-ivory">
         <Navbar />
         <ThemeToggle />

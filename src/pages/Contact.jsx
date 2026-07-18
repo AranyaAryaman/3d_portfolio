@@ -47,7 +47,7 @@ const Contact = () => {
     setCurrentAnimation("hit");
     const subject = encodeURIComponent(`Portfolio inquiry from ${form.name}`);
     const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name} (${form.email})`
+      `${form.message}\n\n- ${form.name} (${form.email})`
     );
     setTimeout(() => {
       window.location.href = `mailto:aryamanaranya@gmail.com?subject=${subject}&body=${body}`;

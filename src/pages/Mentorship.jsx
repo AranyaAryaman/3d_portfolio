@@ -12,7 +12,7 @@ const Mentorship = () => {
         <span className="italic text-gold">giving back</span>.
       </h1>
       <p className="mt-8 max-w-xl text-lg leading-relaxed text-ivory-dim">
-        Roles where I've taught, mentored, and represented communities — from
+        Roles where I've taught, mentored, and represented communities, from
         the classroom to campus.
       </p>
 

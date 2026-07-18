@@ -6,10 +6,12 @@ export const experiences = [
     location: "Gulfport, FL",
     date: "2026",
     points: [
-      "Architected a systematic equities signal-research engine evaluating 6,500+ signals with walk-forward validation, K-Means clustering, and correlation-constrained selection across live daily strategies.",
-      "Built an autonomous LLM-powered research agent (Gemini API) with vectorized evaluation and 80+ robustness metrics, scaling automated research to 65,000+ systematically backtested candidates.",
-      "Designed custom MCP research tools for Claude Code (Python, boto3, psycopg2), enabling team-wide strategy reproduction, A/B testing, and live debugging across AWS.",
-      "Migrated production to a low-latency AWS stack (ECS Fargate, RDS read replica, ElastiCache Redis) with zero-downtime CI/CD across 30+ releases.",
+      "Architected a systematic equities signal-research engine evaluating 6,500+ alpha signals with walk-forward validation, K-Means clustering, and correlation-constrained greedy selection, achieving +2.39 average out-of-sample Sharpe across 5 live daily trading books.",
+      "Owned research and execution end to end, scaling automated alpha research to 65,000+ systematically backtested candidates with 80+ robustness metrics per strategy (bootstrap confidence intervals, regime analysis).",
+      "Built an autonomous LLM-powered research agent (Gemini API) with iterative feedback loops and vectorized signal evaluation at roughly 5ms per signal.",
+      "Engineered a multi-layer code-sandboxing system (RestrictedPython plus a custom AST transformer, import whitelisting, and 23 banned-pattern detectors), securing autonomous execution of 50+ researcher-submitted strategies with zero sandbox escapes.",
+      "Designed 4 custom MCP research tools for Claude Code (Python, boto3, psycopg2), enabling team-wide strategy reproduction, A/B testing, and live debugging across 6 AWS services and cutting reproduction cycles from hours to minutes.",
+      "Migrated production to a low-latency AWS stack (ECS Fargate behind ALB and CloudFront, RDS read replica, ElastiCache Redis with stampede locking), cutting cold API response from 33s to under 4s with zero-downtime CI/CD.",
     ],
   },
   {
@@ -19,10 +21,10 @@ export const experiences = [
     location: "New York, NY",
     date: "2025",
     points: [
-      "Co-founded an AI startup and drove the MVP from concept to production (Python, React, AWS) while leading a team of 4 engineers.",
-      "Built an ML pipeline to extract predictive indicators of candidate/role fit using S-BERT embeddings, LangChain, and LLM agents, improving match accuracy over keyword search.",
-      "Owned vendor strategy — evaluating and integrating multiple LLM providers, sharply cutting profile-creation time.",
-      "Deployed a microservices AWS architecture (EC2 + Nginx, Amplify, Supabase) scaling to 10K+ concurrent requests.",
+      "Co-founded the company and led a team of 4 engineers, driving the AI product from concept to production and scaling to a $3M post-money valuation with a top-2% Y Combinator founder profile.",
+      "Set the technical vision and owned AI strategy, architecting an ML pipeline that extracts predictive indicators of candidate/role fit using S-BERT embeddings, LangChain, and LLM agents, improving match accuracy 68% over keyword search.",
+      "Directed vendor and model strategy across multiple LLM providers, cutting profile-creation time 20x as the AI landscape evolved rapidly.",
+      "Recruited and mentored the founding engineering team, establishing the architecture, roadmap, and delivery cadence for a fast-moving AI startup.",
     ],
   },
   {
@@ -30,7 +32,7 @@ export const experiences = [
     company_name: "Oracle",
     company_note: "Oracle India Private Limited",
     location: "Hyderabad, India",
-    date: "2021 — 2024",
+    date: "2021-2024",
     points: [
       "Engineered a low-latency PL/SQL REST API achieving a 7× performance gain via CTE optimizations, query-plan analysis, and indexing, cutting p95 from 14s to 2s.",
       "Designed a high-throughput Java & PL/SQL microservice on Linux for bulk updates, improving workflow efficiency 10× and serving 500+ internal users.",
@@ -50,21 +52,21 @@ export const projects = [
   {
     name: "LLM Supervised Fine-Tuning",
     description:
-      "Supervised fine-tuning (SFT) of a large language model on a curated instruction dataset — building the data pipeline, training loop, and evaluation harness to improve task-specific performance over the base model.",
+      "Supervised fine-tuning (SFT) of a large language model on a curated instruction dataset, building the data pipeline, training loop, and evaluation harness to improve task-specific performance over the base model.",
     tags: ["LLM", "Fine-Tuning", "PyTorch", "ML"],
     link: "",
   },
   {
     name: "Multimodal Fake News Detection",
     description:
-      "A multimodal classifier that detects misinformation by jointly modeling article text and imagery — combining NLP embeddings with visual features to outperform unimodal text-only baselines.",
+      "A multimodal classifier that detects misinformation by jointly modeling article text and imagery, combining NLP embeddings with visual features to outperform unimodal text-only baselines.",
     tags: ["Deep Learning", "NLP", "Multimodal", "ML"],
     link: "",
   },
   {
     name: "Causal Inference: Weather & Traffic",
     description:
-      "An observational causal-inference study estimating the effect of weather conditions on traffic patterns — applying causal methods to separate genuine causal impact from confounded correlation.",
+      "An observational causal-inference study estimating the effect of weather conditions on traffic patterns, applying causal methods to separate genuine causal impact from confounded correlation.",
     tags: ["Causal Inference", "Statistics", "Python"],
     link: "",
   },
@@ -79,7 +81,7 @@ export const projects = [
   {
     name: "strace for xv6",
     description:
-      "A Linux-like system-call tracing utility implemented in C for the xv6 kernel — supporting 22+ syscalls with filtering, circular logging, and child-process tracing.",
+      "A Linux-like system-call tracing utility implemented in C for the xv6 kernel, supporting 22+ syscalls with filtering, circular logging, and child-process tracing.",
     tags: ["C", "Operating Systems", "Kernel"],
     link: "https://github.com/AranyaAryaman/strace-xv6",
     linkLabel: "GitHub",
@@ -87,7 +89,7 @@ export const projects = [
   {
     name: "Real-Time Messenger",
     description:
-      "A real-time chat application built with Node.js, Next.js, WebSockets, and MongoDB — bi-directional messaging with sub-100ms delivery latency and JWT-based authentication.",
+      "A real-time chat application built with Node.js, Next.js, WebSockets, and MongoDB, bi-directional messaging with sub-100ms delivery latency and JWT-based authentication.",
     tags: ["Next.js", "WebSockets", "MongoDB", "Node.js"],
     link: "https://webchat-j21z.onrender.com",
     linkLabel: "Live demo",
@@ -95,7 +97,7 @@ export const projects = [
   {
     name: "Earnings Event Study",
     description:
-      "A sector-neutral event study in C++ (Beat/Meet/Miss) with 2% outlier filtering and bootstrap resampling — computing abnormal returns and CAAR over 2N-day windows to measure post-earnings drift.",
+      "A sector-neutral event study in C++ (Beat/Meet/Miss) with 2% outlier filtering and bootstrap resampling, computing abnormal returns and CAAR over 2N-day windows to measure post-earnings drift.",
     tags: ["C++", "Quant Research", "Statistics"],
     link: "",
   },
@@ -123,7 +125,7 @@ export const achievements = [
   {
     year: "2026",
     title: "Invited to shadow-run a $52M quantitative fund",
-    note: "Quanta Ventures — recognition of research and engineering judgment.",
+    note: "Quanta Ventures, recognition of research and engineering judgment.",
   },
   {
     year: "2025",
@@ -137,32 +139,32 @@ export const achievements = [
   },
   {
     year: "2024",
-    title: "Perfect GRE Quantitative Score — 170 / 170",
+    title: "Perfect GRE Quantitative Score, 170 / 170",
     note: "",
   },
   {
     year: "2023",
-    title: "Semi-finalist — Oracle EMEA Football Tournament",
+    title: "Semi-finalist, Oracle EMEA Football Tournament",
     note: "Company-wide football tournament held in Manchester, UK.",
   },
   {
     year: "2020",
-    title: "Development Module Winner — Inter IIT Tech Meet",
+    title: "Development Module Winner, Inter IIT Tech Meet",
     note: "",
   },
   {
     year: "2017",
-    title: "All India Rank 570 — IIT JEE Advanced",
+    title: "All India Rank 570, IIT JEE Advanced",
     note: "",
   },
   {
     year: "2016",
-    title: "National Top 1% — Physics Olympiad",
+    title: "National Top 1%, Physics Olympiad",
     note: "Indian National Physics Olympiad.",
   },
   {
     year: "2016",
-    title: "KVPY Scholarship — All India Rank 176",
+    title: "KVPY Scholarship, All India Rank 176",
     note: "National research-aptitude fellowship, Dept. of Science & Technology, India.",
   },
 ];
@@ -171,7 +173,7 @@ export const hobbies = [
   {
     icon: "♪",
     name: "Singing Hindi Music",
-    note: "From classical ragas to film melodies — I love working through sargam and finding the feeling in a song.",
+    note: "From classical ragas to film melodies, I love working through sargam and finding the feeling in a song.",
   },
   {
     icon: "≈",
@@ -181,7 +183,7 @@ export const hobbies = [
   {
     icon: "⚽",
     name: "Football",
-    note: "Played competitively for years — including the Oracle EMEA tournament in Manchester.",
+    note: "Played competitively for years, including the Oracle EMEA tournament in Manchester.",
   },
 ];
 
@@ -191,21 +193,21 @@ export const mentorship = [
     org: "New York University",
     date: "2025",
     detail:
-      "Operating Systems & Algorithms — mentored graduate students, ran office hours, and graded coursework for two core CS classes.",
+      "Operating Systems & Algorithms, mentored graduate students, ran office hours, and graded coursework for two core CS classes.",
   },
   {
     role: "Development Head, Coding Club",
     org: "IIT Guwahati",
-    date: "2019 – 2020",
+    date: "2019-2020",
     detail:
-      "Led the club's development wing — organized workshops and mentored members building software projects.",
+      "Led the club's development wing, organized workshops and mentored members building software projects.",
   },
   {
     role: "General Secretary, Hostel Siang",
     org: "IIT Guwahati",
-    date: "2019 – 2020",
+    date: "2019-2020",
     detail:
-      "Elected to lead the hostel's student body — represented residents, organized events, and managed hostel affairs and budgets.",
+      "Elected to lead the hostel's student body, represented residents, organized events, and managed hostel affairs and budgets.",
   },
 ];
 
