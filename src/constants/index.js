@@ -162,7 +162,7 @@ export const achievements = [
   },
 ];
 
-export const leadership = [
+export const mentorship = [
   {
     role: "Graduate Teaching Assistant",
     org: "New York University",
@@ -176,6 +176,13 @@ export const leadership = [
     date: "2019 – 2020",
     detail:
       "Led the club's development wing — organized workshops and mentored members building software projects.",
+  },
+  {
+    role: "General Secretary, Hostel Siang",
+    org: "IIT Guwahati",
+    date: "2019 – 2020",
+    detail:
+      "Elected to lead the hostel's student body — represented residents, organized events, and managed hostel affairs and budgets.",
   },
 ];
 

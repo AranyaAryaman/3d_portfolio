@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import { Home, About, Projects, Contact, Achievements, Leadership } from "./pages";
+import { Home, About, Projects, Contact, Achievements, Mentorship } from "./pages";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/achievements" element={<Achievements />} />
-          <Route path="/leadership" element={<Leadership />} />
+          <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />

@@ -1,22 +1,23 @@
-import { leadership } from "../constants";
+import { mentorship } from "../constants";
 
-const Leadership = () => {
+const Mentorship = () => {
   return (
     <section className="max-container">
       <p className="eyebrow">
         <span className="h-px w-8 bg-gold" />
-        Leadership
+        Mentorship &amp; Community
       </p>
       <h1 className="head-text max-w-3xl">
-        Positions of <span className="italic text-gold">responsibility</span>.
+        Teaching, mentoring, and{" "}
+        <span className="italic text-gold">giving back</span>.
       </h1>
       <p className="mt-8 max-w-xl text-lg leading-relaxed text-ivory-dim">
-        Roles where I've mentored, taught, and led — beyond building the work
-        itself.
+        Roles where I've taught, mentored, and represented communities — from
+        the classroom to campus.
       </p>
 
       <div className="mt-16 flex flex-col">
-        {leadership.map((item) => (
+        {mentorship.map((item) => (
           <article
             key={item.role}
             className="group grid gap-3 border-t border-hairline py-10 sm:grid-cols-[8rem_1fr] sm:gap-8"
@@ -40,4 +41,4 @@ const Leadership = () => {
   );
 };
 
-export default Leadership;
+export default Mentorship;
