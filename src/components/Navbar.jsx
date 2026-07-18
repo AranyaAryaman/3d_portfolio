@@ -6,6 +6,7 @@ const links = [
   { to: "/projects", label: "Work" },
   { to: "/achievements", label: "Achievements" },
   { to: "/mentorship", label: "Mentorship" },
+  { to: "/hobbies", label: "Hobbies" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -29,7 +30,7 @@ const Navbar = () => {
         </NavLink>
 
         {/* Desktop nav */}
-        <nav className="hidden gap-8 sm:flex">
+        <nav className="hidden gap-6 md:flex">
           {links.map((l) => (
             <NavLink key={l.to} to={l.to} className={navClass}>
               {l.label}
@@ -43,7 +44,7 @@ const Navbar = () => {
           aria-label="Toggle menu"
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 sm:hidden"
+          className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
         >
           <span
             className={`h-px w-6 bg-ivory transition-transform duration-300 ${
@@ -60,7 +61,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="mx-4 mb-3 flex flex-col gap-1 rounded-2xl border border-hairline bg-ink-800/95 p-4 backdrop-blur sm:hidden">
+        <nav className="mx-4 mb-3 flex flex-col gap-1 rounded-2xl border border-hairline bg-ink-800/95 p-4 backdrop-blur md:hidden">
           {links.map((l) => (
             <NavLink
               key={l.to}

@@ -1,10 +1,72 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "../context/ThemeContext";
 
-// Quant-flavored, mouse-interactive backdrop: concentric rings of digits
-// rotating at different speeds plus a field of drifting numbers. Glyphs near
-// the cursor brighten and drift away from it — a live "spotlight" of figures.
-const AnimatedBackground = () => {
+// Per-page content sets. `pool` = null means "use digits" (quant feel).
+const VARIANTS = {
+  quant: {
+    pool: null,
+    phrases: [
+      "C = S·N(d₁) − K·e^(−rT)·N(d₂)",
+      "Sharpe = (Rₚ − R_f) / σₚ",
+      "dS = μS·dt + σS·dW",
+      "β = Cov(r, m) / Var(m)",
+      "E[R] = R_f + β(R_m − R_f)",
+      "σ = √( Σ(xᵢ − μ)² / n )",
+      "Δ = ∂C/∂S      Γ = ∂²C/∂S²",
+      "VaR_α = μ − z_α·σ",
+      "f* = (bp − q) / b",
+      "P&L = Σ wᵢ·rᵢ − costs",
+    ],
+  },
+  code: {
+    pool: ["{", "}", "</>", "()", "=>", "[]", "//", "&&", "||", "fn", "let", "::", "++"],
+    phrases: [
+      "const alpha = f(x)",
+      "while (!done) iterate()",
+      "model.fit(X, y)",
+      "O(n log n)",
+      "git commit -m \"ship\"",
+      "return insight;",
+      "async () => await run()",
+    ],
+  },
+  accolades: {
+    pool: ["★", "✦", "✧", "◆", "♦", "▲", "+", "0", "1", "7"],
+    phrases: [
+      "top 2%",
+      "170 / 170",
+      "AIR 570",
+      "4.0 GPA",
+      "AIR 176",
+      "+2.39 Sharpe",
+    ],
+  },
+  academic: {
+    pool: ["Σ", "π", "∫", "∂", "√", "∞", "λ", "Δ", "≈", "∇", "→"],
+    phrases: [
+      "teach · learn · grow",
+      "mentor → student",
+      "office hours 3–5pm",
+      "knowledge compounds",
+    ],
+  },
+  hobbies: {
+    pool: ["♪", "♫", "♩", "♬", "सा", "रे", "ग", "म", "प", "ध", "नी", "~", "⚽"],
+    phrases: [
+      "सा रे ग म प ध नी सा",
+      "swim · sing · play",
+      "♪  〜〜  ⚽",
+      "do re mi fa so",
+    ],
+  },
+  contact: {
+    pool: ["@", "✉", "·", "—", "»", "☎", "→"],
+    phrases: ["let's connect", "say hello", "reach out", "@ aranya"],
+  },
+};
+
+// Quant-flavored, mouse-interactive backdrop that changes its symbols per page.
+const AnimatedBackground = ({ variant = "quant" }) => {
   const canvasRef = useRef(null);
   const { theme } = useTheme();
 
@@ -12,6 +74,7 @@ const AnimatedBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
+    const cfg = VARIANTS[variant] || VARIANTS.quant;
 
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -28,29 +91,28 @@ const AnimatedBackground = () => {
     let raf;
 
     const mouse = { x: -9999, y: -9999, ex: -9999, ey: -9999 };
-    const R = 190; // interaction radius
+    const R = 190;
 
     const rand = (n) => Math.floor(Math.random() * n);
     const digit = () => String(rand(10));
-
-    const formulaSet = [
-      "C = S·N(d₁) − K·e^(−rT)·N(d₂)",
-      "Sharpe = (Rₚ − R_f) / σₚ",
-      "dS = μS·dt + σS·dW",
-      "β = Cov(r, m) / Var(m)",
-      "E[R] = R_f + β(R_m − R_f)",
-      "σ = √( Σ(xᵢ − μ)² / n )",
-      "Δ = ∂C/∂S      Γ = ∂²C/∂S²",
-      "VaR_α = μ − z_α·σ",
-      "ρ = Σ(x−x̄)(y−ȳ) / (σ_x σ_y)",
-      "f* = (bp − q) / b",
-      "P&L = Σ wᵢ·rᵢ − costs",
-      "θ = −∂C/∂t",
-    ];
+    const token = () =>
+      cfg.pool
+        ? cfg.pool[rand(cfg.pool.length)]
+        : Math.random() > 0.8
+        ? digit() + digit()
+        : digit();
+    const driftText = () =>
+      cfg.pool
+        ? cfg.pool[rand(cfg.pool.length)]
+        : Math.random() > 0.5
+        ? (Math.random() * 100).toFixed(2)
+        : String(rand(1000));
+    const phrase = () =>
+      cfg.phrases[rand(cfg.phrases.length)] || token();
 
     let rings = [];
     let drifters = [];
-    let formulas = [];
+    let phrases = [];
 
     const build = () => {
       const minSide = Math.min(width, height);
@@ -62,20 +124,18 @@ const AnimatedBackground = () => {
           count,
           rotation: Math.random() * Math.PI * 2,
           speed: (i % 2 === 0 ? 1 : -1) * (0.0011 + i * 0.0004),
-          chars: Array.from({ length: count }, () =>
-            Math.random() > 0.8 ? digit() + digit() : digit()
-          ),
+          chars: Array.from({ length: count }, token),
           fontSize: 13 + (3 - i) * 2,
           gold: i === 1 || i === 3,
         };
       });
 
       const fCount = Math.max(4, Math.min(9, Math.round(width / 220)));
-      formulas = Array.from({ length: fCount }, (_, i) => ({
+      phrases = Array.from({ length: fCount }, (_, i) => ({
         x: 40 + Math.random() * Math.max(60, width - 360),
         y: (height / fCount) * i + Math.random() * 60,
         vy: 0.06 + Math.random() * 0.16,
-        text: formulaSet[Math.floor(Math.random() * formulaSet.length)],
+        text: phrase(),
         size: 14 + rand(4),
         alpha: 0.06 + Math.random() * 0.06,
         gold: Math.random() > 0.6,
@@ -88,10 +148,7 @@ const AnimatedBackground = () => {
         ox: 0,
         oy: 0,
         vy: 0.14 + Math.random() * 0.4,
-        text:
-          Math.random() > 0.5
-            ? (Math.random() * 100).toFixed(2)
-            : String(rand(1000)),
+        text: driftText(),
         size: 10 + rand(6),
         alpha: 0.05 + Math.random() * 0.09,
         gold: Math.random() > 0.85,
@@ -116,7 +173,7 @@ const AnimatedBackground = () => {
       let useGold = gold;
       if (dist < R) {
         const t = 1 - dist / R;
-        alpha = baseAlpha + t * 0.55; // brighten near cursor
+        alpha = baseAlpha + t * 0.55;
         if (t > 0.4) useGold = true;
       }
       const rgb = useGold ? palette.accent : palette.base;
@@ -156,15 +213,14 @@ const AnimatedBackground = () => {
         }
       });
 
-      // quant formulas — larger, slower, left-aligned
       ctx.textAlign = "left";
-      formulas.forEach((f) => {
+      phrases.forEach((f) => {
         if (!reduce) {
           f.y -= f.vy;
           if (f.y < -30) {
             f.y = height + 30;
             f.x = 40 + Math.random() * Math.max(60, width - 360);
-            f.text = formulaSet[Math.floor(Math.random() * formulaSet.length)];
+            f.text = phrase();
           }
         }
         ctx.font = `${f.size}px "JetBrains Mono", ui-monospace, monospace`;
@@ -180,7 +236,6 @@ const AnimatedBackground = () => {
             d.x = Math.random() * width;
           }
         }
-        // gentle repel from cursor
         const dx = d.x - mouse.ex;
         const dy = d.y - mouse.ey;
         const dist = Math.hypot(dx, dy);
@@ -229,7 +284,7 @@ const AnimatedBackground = () => {
       window.removeEventListener("pointermove", onMove);
       window.removeEventListener("pointerout", onLeave);
     };
-  }, [theme]);
+  }, [theme, variant]);
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">

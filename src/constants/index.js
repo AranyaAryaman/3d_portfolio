@@ -153,12 +153,35 @@ export const achievements = [
   {
     year: "2017",
     title: "All India Rank 570 — IIT JEE Advanced",
-    note: "Top 0.1% nationally · National Top 1%, Physics Olympiad (India).",
+    note: "",
+  },
+  {
+    year: "2016",
+    title: "National Top 1% — Physics Olympiad",
+    note: "Indian National Physics Olympiad.",
   },
   {
     year: "2016",
     title: "KVPY Scholarship — All India Rank 176",
     note: "National research-aptitude fellowship, Dept. of Science & Technology, India.",
+  },
+];
+
+export const hobbies = [
+  {
+    icon: "♪",
+    name: "Singing Hindi Music",
+    note: "From classical ragas to film melodies — I love working through sargam and finding the feeling in a song.",
+  },
+  {
+    icon: "≈",
+    name: "Swimming",
+    note: "My reset button. There's nothing like a few quiet laps to clear the head and think.",
+  },
+  {
+    icon: "⚽",
+    name: "Football",
+    note: "Played competitively for years — including the Oracle EMEA tournament in Manchester.",
   },
 ];
 

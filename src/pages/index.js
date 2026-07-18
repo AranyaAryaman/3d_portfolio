@@ -4,5 +4,6 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Achievements from './Achievements';
 import Mentorship from './Mentorship';
+import Hobbies from './Hobbies';
 
-export { Home, About, Projects, Contact, Achievements, Mentorship };
+export { Home, About, Projects, Contact, Achievements, Mentorship, Hobbies };
