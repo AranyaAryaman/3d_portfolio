@@ -1,77 +1,94 @@
-import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-
-import { experiences, skills } from '../constants'
-import CTA from '../components/CTA';
+import { experiences, stack } from "../constants";
 
 const About = () => {
   return (
-    <section className='max-container'>
-      <h1 className='head-text'>
-        Hello, I'm <span className='blue-gradient_text font-semibold drop-shadow'>Aranya</span>
+    <section className="max-container">
+      <p className="eyebrow">
+        <span className="h-px w-8 bg-gold" />
+        About
+      </p>
+      <h1 className="head-text max-w-3xl">
+        Engineering at the intersection of{" "}
+        <span className="italic text-gold">research and production</span>.
       </h1>
 
-      <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-        <p> Software Engineer based in United States, interested in full stack development, machine learning & AI. </p>
+      <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-ivory-dim">
+        <p>
+          I'm an AI Software Engineer and Quantitative Researcher based in New
+          York, completing an MS in Computer Science at NYU after a B.Tech at IIT
+          Guwahati. My work spans machine learning, systematic investing, and
+          the systems that carry them into production.
+        </p>
+        <p>
+          I've architected a systematic signal-research engine at a quantitative
+          fund, co-founded an AI startup, and shipped low-latency distributed
+          systems at Oracle — always drawn to turning research into durable,
+          production-grade software.
+        </p>
       </div>
 
-      <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My Skills</h3>
-
-        <div className='mt-16 flex flex-wrap gap-12'>
-          {skills.map((skill) => (
-            <div className='block-container w-20 h-20' key={skill.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img src={skill.imageUrl} alt={skill.name} className='w-1/2 h-1/2 object-contain' />
-              </div>
-            </div>
+      {/* Stack */}
+      <div className="mt-20">
+        <p className="eyebrow">
+          <span className="h-px w-8 bg-gold" />
+          Toolkit
+        </p>
+        <div className="flex flex-wrap gap-x-8 gap-y-3">
+          {stack.map((item) => (
+            <span
+              key={item}
+              className="text-sm tracking-wide text-ivory-dim transition-colors hover:text-gold"
+            >
+              {item}
+            </span>
           ))}
         </div>
       </div>
 
-      <div className='py-16'>
-        <h3 className='subhead-text'> Work Experience </h3>
-        <div className='mt-5 flex flex-col gap-3 text-slate-500'>
-          <p> I've worked with all sorts of companies, levelling up my skills and teaming up with smart people. Here's the rundown: </p>
-        </div>
-        <div className='mt-12 flex'>
-          <VerticalTimeline>
-            {experiences.map((experience)=> (
-              <VerticalTimelineElement key={experience.company_name} date={experience.date} icon={
-                <div className='flex justify-center items-center w-full h-full'>
-                  <img src={experience.icon} alt={experience.company_name} className='w-[60%] h-[60%] object-contain' />
-                </div>
-              } 
-              iconStyle={{background: experience.iconBg}} 
-              contentStyle={{
-                borderBottom: '8px', borderStyle: 'solid', borderBottomColor: experience.iconBg, boxShadow: 'none'
-              }}>
-                <div>
-                  <h3 className='text-black text-xl font-poppins font-semibold'>
-                    {experience.title}
-                  </h3>
-                  <p className='text-black-500 font-medium font-base' style={{margin:0}}>
-                    {experience.company_name}
-                  </p>
-                </div>
-                <ul className='my-5 list-disc ml-5 space-y-2'>
-                  {experience.points.map((point, index)=> (
-                    <li key={`experience-point-${index}`} className='text-black-500/50 font-normal pl-1 text-sm'>
+      {/* Experience */}
+      <div className="mt-20">
+        <p className="eyebrow">
+          <span className="h-px w-8 bg-gold" />
+          Experience
+        </p>
+
+        <div className="flex flex-col">
+          {experiences.map((exp) => (
+            <article
+              key={exp.company_name}
+              className="grid gap-6 border-t border-hairline py-10 sm:grid-cols-[8rem_1fr]"
+            >
+              <div className="text-sm text-muted">
+                <p className="text-ivory">{exp.date}</p>
+                <p className="mt-1">{exp.location}</p>
+              </div>
+
+              <div>
+                <h3 className="subhead-text">{exp.title}</h3>
+                <p className="mt-1 text-sm tracking-wide text-gold">
+                  {exp.company_name}
+                  {exp.company_note && (
+                    <span className="text-muted"> · {exp.company_note}</span>
+                  )}
+                </p>
+                <ul className="mt-5 space-y-3">
+                  {exp.points.map((point, i) => (
+                    <li
+                      key={i}
+                      className="flex gap-3 text-[15px] leading-relaxed text-ivory-dim"
+                    >
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold/70" />
                       {point}
                     </li>
                   ))}
                 </ul>
-              </VerticalTimelineElement>
-            ))}
-          </VerticalTimeline>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
-
-      <hr className='border-slate-200' />
-      <CTA />
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -1,57 +1,29 @@
-import React, { useEffect, useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useEffect, useRef } from "react";
+import { useAnimations, useGLTF } from "@react-three/drei";
 
-import scene from '../assets/3d/fox.glb';
+import foxScene from "../assets/3d/fox.glb";
 
+// Fox model with idle / walk / hit animations, driven by `currentAnimation`.
 const Fox = ({ currentAnimation, ...props }) => {
-    const group = useRef();
-    const { nodes, materials, animations } = useGLTF(scene);
-    const { actions } = useAnimations(animations, group);
+  const group = useRef();
+  const { scene, animations } = useGLTF(foxScene, "/draco/");
+  const { actions } = useAnimations(animations, group);
 
-    useEffect(()=>{
-        Object.values(actions).forEach((action)=> action.stop());
-        if(actions[currentAnimation]){
-            actions[currentAnimation].play();
-        }
-    }, [actions,currentAnimation])
+  useEffect(() => {
+    Object.values(actions).forEach((action) => action?.stop());
+    const active = actions[currentAnimation];
+    if (active) active.reset().fadeIn(0.3).play();
 
-    return (
-        <group ref={group} {...props} dispose={null}>
-            <group name="Sketchfab_Scene">
-                <primitive object={nodes.GLTF_created_0_rootJoint} />
-                <skinnedMesh
-                    name="Object_7"
-                    geometry={nodes.Object_7.geometry}
-                    material={materials.PaletteMaterial001}
-                    skeleton={nodes.Object_7.skeleton}
-                />
-                <skinnedMesh
-                    name="Object_8"
-                    geometry={nodes.Object_8.geometry}
-                    material={materials.PaletteMaterial001}
-                    skeleton={nodes.Object_8.skeleton}
-                />
-                <skinnedMesh
-                    name="Object_9"
-                    geometry={nodes.Object_9.geometry}
-                    material={materials.PaletteMaterial001}
-                    skeleton={nodes.Object_9.skeleton}
-                />
-                <skinnedMesh
-                    name="Object_10"
-                    geometry={nodes.Object_10.geometry}
-                    material={materials.PaletteMaterial001}
-                    skeleton={nodes.Object_10.skeleton}
-                />
-                <skinnedMesh
-                    name="Object_11"
-                    geometry={nodes.Object_11.geometry}
-                    material={materials.PaletteMaterial001}
-                    skeleton={nodes.Object_11.skeleton}
-                />
-            </group>
-        </group>
-    )
-}
+    return () => active?.fadeOut(0.3);
+  }, [actions, currentAnimation]);
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <primitive object={scene} />
+    </group>
+  );
+};
+
+useGLTF.preload(foxScene, "/draco/");
 
 export default Fox;

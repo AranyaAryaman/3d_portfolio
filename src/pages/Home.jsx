@@ -1,104 +1,84 @@
-import React, { Suspense, useState, useEffect, useRef } from 'react';
-import { Canvas } from '@react-three/fiber';
-import Loader from '../components/Loader';
-import Island from '../models/Island';
-import Sky  from '../models/Sky';
-import Bird  from '../models/Bird';
-import Plane  from '../models/Plane';
-import HomeInfo from '../components/HomeInfo';
-import { soundoff, soundon } from '../assets/icons';
-import space from '../assets/space.mp3';
+import { Link } from "react-router-dom";
+
+import AnimatedBackground from "../components/AnimatedBackground";
+import SocialIcon from "../components/SocialIcon";
+import HeroModel from "../models/HeroModel";
+import { useTypewriter } from "../hooks/useTypewriter";
+import { socialLinks } from "../constants";
+
+const roles = [
+  "Quantitative Researcher",
+  "AI Software Engineer",
+  "Startup Co-Founder",
+  "Systems Builder",
+];
 
 const Home = () => {
+  const typed = useTypewriter(roles);
 
+  return (
+    <section className="relative flex min-h-screen items-center overflow-hidden">
+      <AnimatedBackground />
 
-    const audioRef = useRef(new Audio(space));
-    audioRef.current.volume = 0.4;
-    audioRef.current.loop = true;
-    const [isRotating, setIsRotating] = useState(false);
-    const [currentStage, setCurrentStage] = useState(1);
-    const [isPlayingMusic, setIsPlayingMusic] = useState(false);
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-10 px-6 py-28 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6">
+        {/* Left: intro */}
+        <div>
+          <p className="eyebrow">
+            <span className="h-px w-8 bg-gold" />
+            Aranya Aryaman
+          </p>
 
-    useEffect(()=>{
-        if(isPlayingMusic){
-            audioRef.current.play();
-        }
-        return () => {
-            audioRef.current.pause();
-        }
-    },[isPlayingMusic])
+          <h1 className="head-text max-w-xl">
+            I build <span className="italic text-gold">intelligent</span> systems
+            for markets and machines.
+          </h1>
 
-    const adjustIslandForScreenSize = () => {
-        let screenScale = null;
-        let screenPosition = [0,-6.5,-43];
-        let rotation = [0.1, 4.7, 0];
+          <p className="mono mt-6 text-base text-ivory-dim sm:text-lg">
+            <span className="text-gold">&gt;</span> {typed}
+            <span className="caret" />
+          </p>
 
-        if(window.innerWidth < 768){
-            screenScale = [0.9,0.9,0.9];
-        } else {
-            screenScale = [1,1,1];
-        }
+          <p className="mt-8 max-w-lg leading-relaxed text-ivory-dim">
+            Quantitative Researcher at Quanta Ventures and co-founder of{" "}
+            <span className="text-ivory">Hush</span>. Previously an engineer at
+            Oracle.
+          </p>
 
-        return [screenScale, screenPosition, rotation];
-    }
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link to="/projects" className="btn">
+              View my work
+            </Link>
+            <Link to="/about" className="btn-ghost">
+              About me
+            </Link>
+          </div>
 
-    const adjustPlaneForScreenSize = () => {
-        let screenScale, screenPosition;
+          <div className="mt-10 flex items-center gap-3">
+            {socialLinks.map((s) => (
+              <a
+                key={s.name}
+                href={s.link}
+                target={s.link.startsWith("http") ? "_blank" : undefined}
+                rel="noreferrer"
+                aria-label={s.name}
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-hairline text-ivory-dim transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:text-gold"
+              >
+                <SocialIcon name={s.icon} />
+              </a>
+            ))}
+          </div>
+        </div>
 
-        if(window.innerWidth < 768){
-            screenScale = [1.5,1.5,1.5];
-            screenPosition = [0,-1.5,0];
-        } else {
-            screenScale = [3,3,3];
-            screenPosition = [0,-4,-4];
-        }
+        {/* Right: interactive 3D model */}
+        <div className="relative h-[340px] w-full sm:h-[440px] lg:h-[560px]">
+          <HeroModel />
+          <p className="pointer-events-none absolute bottom-2 right-2 mono text-[10px] uppercase tracking-[0.25em] text-muted">
+            drag to explore ⟲
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
 
-        return [screenScale, screenPosition];
-    }
-
-    const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize();
-    const [planeScale, planePosition] = adjustPlaneForScreenSize();
-
-    return (
-        <section className='w-full h-screen relative'>
-
-            <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-                {currentStage && <HomeInfo currentStage={currentStage} />}
-            </div>
-
-            <Canvas
-                className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-                camera={{ near: 0.1, far: 1000 }}
-            >
-                <Suspense fallback={<Loader />}>
-                    <directionalLight position = {[1,1,1]} intensity={2} />
-                    <ambientLight intensity={0.5}/>
-                    <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
-
-                    <Bird />
-                    <Sky isRotating={isRotating}/>
-                    <Island 
-                        position = {islandPosition}
-                        scale = {islandScale}
-                        rotation = {islandRotation}
-                        isRotating = {isRotating}
-                        setIsRotating={setIsRotating}
-                        setCurrentStage = {setCurrentStage}
-                    />
-                    <Plane
-                        isRotating = {isRotating}
-                        scale = {planeScale}
-                        position = {planePosition}
-                        rotation = {[0,20,0]}    
-                    />
-                </Suspense>
-            </Canvas>
-
-            <div className='absolute bottom-2 left-2'>
-                <img src={!isPlayingMusic ? soundoff : soundon} alt="sound" className='w-10 h-10 cursor-pointer object-contain' onClick={()=>setIsPlayingMusic(!isPlayingMusic)} />
-            </div>
-        </section>
-    )
-}
-
-export default Home
+export default Home;
