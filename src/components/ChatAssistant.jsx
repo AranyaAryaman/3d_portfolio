@@ -64,6 +64,11 @@ const SUGGESTIONS = [
 // Conversational small talk handled before keyword lookup.
 const SMALLTALK = [
   {
+    // easter egg: "what is Arya-man?"
+    test: /arya[-\s]man|meaning of arya|what does arya\w*\s*mean|\b(what|who)\s+is\s+arya\b/,
+    a: "Arya-man = Arya's man 💛. Because he's completely in love with a wonderful girl named Arya.",
+  },
+  {
     test: /\b(hi|hii+|hey+|hello|yo|hiya|namaste|sup|greetings|howdy)\b/,
     a: "Hey there! I'm Aranya's assistant. Ask me about his work at Quanta Ventures, his startup Hush, his projects, skills, education, or how to reach him.",
   },
