@@ -131,11 +131,6 @@ export const achievements = [
     note: "Recognized for academic excellence (4.0 GPA).",
   },
   {
-    year: "2025",
-    title: "Graduate Teaching Assistant — Operating Systems & Algorithms",
-    note: "New York University.",
-  },
-  {
     year: "2024",
     title: "Top 2% Founder Profile, Y Combinator",
     note: "Co-founder of an AI startup valued at $3M post-money.",
@@ -147,17 +142,12 @@ export const achievements = [
   },
   {
     year: "2023",
-    title: "Semi-finalist — Oracle EMEA Tournament, Manchester",
-    note: "",
+    title: "Semi-finalist — Oracle EMEA Football Tournament",
+    note: "Company-wide football tournament held in Manchester, UK.",
   },
   {
     year: "2020",
     title: "Development Module Winner — Inter IIT Tech Meet",
-    note: "",
-  },
-  {
-    year: "2019",
-    title: "Development Head — IIT Guwahati Coding Club",
     note: "",
   },
   {
@@ -169,6 +159,23 @@ export const achievements = [
     year: "2016",
     title: "KVPY Scholarship — All India Rank 176",
     note: "National research-aptitude fellowship, Dept. of Science & Technology, India.",
+  },
+];
+
+export const leadership = [
+  {
+    role: "Graduate Teaching Assistant",
+    org: "New York University",
+    date: "2025",
+    detail:
+      "Operating Systems & Algorithms — mentored graduate students, ran office hours, and graded coursework for two core CS classes.",
+  },
+  {
+    role: "Development Head, Coding Club",
+    org: "IIT Guwahati",
+    date: "2019 – 2020",
+    detail:
+      "Led the club's development wing — organized workshops and mentored members building software projects.",
   },
 ];
 

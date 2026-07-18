@@ -232,9 +232,8 @@ const AnimatedBackground = () => {
   }, [theme]);
 
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       <canvas ref={canvasRef} className="h-full w-full" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-ink" />
     </div>
   );
 };
